@@ -31,4 +31,4 @@ server.on("listening", function () {
   console.log("server listening " + address.address + ":" + address.port);
 });
 
-server.bind(5000); //listen to udp traffic on port 6000
+server.bind(5000); //listen to udp traffic on port 5000
