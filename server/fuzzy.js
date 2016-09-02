@@ -1,4 +1,5 @@
 var math = require('mathjs')
+var functions = require('./aux_func.js')
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////Base de dados ////////////////////////////////////////////////////////////////
@@ -27,6 +28,7 @@ const VL_A = [[1,      0,    0,    0,    0,   0,   0,   0,   0], //0 baixo
               [0,      0,    0,    0,    0, 0.2, 0.5, 0.8,   0], //3 medio alto
               [0,      0,    0,    0,    0,   0,   0,   0,   1]] //4 alto
 
+//Base de Regras
 const BR = [[0, 0, 4],
             [1, 0, 4],
             [2, 0, 4],
@@ -57,23 +59,63 @@ const BR = [[0, 0, 4],
 
 
 //Achar qual dos valores do universo o valor medido de luminosidade faz parte
-var lum_temp = U_L[0]
-var Lum_medida = 0
-var i = 0
-for(i = 1; i < U_L.length; i++) {
-    if(temp <= math.abs(U_L[i]-Lum_medida)) {
-        break
-    } else {
-        temp = math.abs(U_L[i]-Lum_medida)
-    }
-        
-}
 
-var lum_fuzzy = i - 1
-var medida_anterior = Lum_medida
+var Lum_medida = 800
+
+var medida_aprox = 100*math.floor((Lum_medida+50)/100)
+var posicao_lum = U_L.indexOf(medida_aprox)
+
+var lum_fuzzy = VL_L.map(function(value, index) { return value[posicao_lum]})
+console.log(posicao_lum)
+console.log(lum_fuzzy)
+
+var lum_fuzzy_sig = functions.get_sig(lum_fuzzy)
+console.log(lum_fuzzy_sig);
 
 //Achar qual dos valores do universo o valor da variação da mediada faz parte 
 
-var var_temp = U_V[0]
+var lum_medida_atual = 803
 
-var variac = 
+var variacao = lum_medida_atual - Lum_medida
+
+var variacao_aprox = 2*math.floor(variacao/2)
+
+var posicao_variacao = U_V.indexOf(variacao_aprox)
+
+console.log(posicao_variacao)
+
+var variacao_fuzzy = VL_V.map(function(value, index) { return value[posicao_variacao]})
+
+console.log(variacao_fuzzy)
+
+var variacao_fuzzy_sig = functions.get_sig(variacao_fuzzy)
+
+console.log(variacao_fuzzy_sig)
+
+// Encontrar Regras Válidas
+
+var regras = []
+
+for(var i = 0; i < lum_fuzzy_sig.length; i++) {
+    for (var j = 0; j < variacao_fuzzy_sig.length; j++) {
+        var LV = [lum_fuzzy_sig[i], variacao_fuzzy_sig[j]]
+        
+        for(var k = 0; k < BR.length; k++) {
+            var br = [BR[k][0], BR[k][1], BR[k][2]]
+            
+            if(LV[0] == br[0] && LV[1] == br[1]) {
+                regras.push([LV[0], LV[1], br[2] ])
+            }
+        }
+    }
+}
+
+console.log(regras)
+
+for(var i = 0; i < regras.length; i++) {
+    var a = regras[i][0];
+    var b = regras[i][1];
+    var c = regras[i][2];
+
+    
+}
