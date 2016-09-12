@@ -36,7 +36,7 @@ const BR = [[0, 0, 4],
             [4, 0, 0],
             [5, 0, 0],
             [6, 0, 0],
-            
+
             [0, 1, 3],
             [1, 1, 3],
             [2, 1, 2],
@@ -44,7 +44,7 @@ const BR = [[0, 0, 4],
             [4, 1, 2],
             [5, 1, 1],
             [6, 1, 0],
-            
+
             [0, 2, 4],
             [1, 2, 4],
             [2, 2, 3],
@@ -52,6 +52,29 @@ const BR = [[0, 0, 4],
             [4, 2, 1],
             [5, 2, 0],
             [6, 2, 0]]
+
+
+const INFERENCES = {004: [ 0.2,    0.2,  0.2,   0.2,  0.2,    0,    0,     0,    0,    0,    0],
+                    104: [ 0.2,    0.2,  0.2,   0.2,  0.2,    0,    0,     0,    0,    0,    0],
+                    204: [ 0.1,    0.1,  0.1,   0.1,  0.1,    0,    0,     0,    0,    0,    0],
+                    302: [ 0.2,    0.2,  0.2,   0.2,  0.2,    0,    0,     0,    0,    0,    0],
+                    400: [ 0.3,    0.3,  0.3,   0.3,  0.2,    0,    0,     0,    0,    0,    0],
+                    500: [ 0.5,    0.5,  0.5,   0.4,  0.2,    0,    0,     0,    0,    0,    0],
+                    600: [   1,    0.8,  0.6,   0.4,  0.2,    0,    0,     0,    0,    0,    0],
+                    013: [   0,      0,    0,   0.2,  0.2,  0.2,  0.2,   0.2,  0.2,    0,    0],
+                    113: [   0,      0,    0,   0.2,  0.2,  0.2,  0.2,   0.2,  0.2,    0,    0],
+                    212: [   0,      0,    0,   0.1,  0.1,  0.1,  0.1,   0.1,  0.1,    0,    0],
+                    312: [   0,      0,    0,   0.2,  0.2,  0.2,  0.2,   0.2,  0.2,    0,    0],
+                    412: [   0,      0,    0,   0.2,  0.3,  0.3,  0.3,   0.3,  0.2,    0,    0],
+                    511: [   0,      0,    0,   0.2,  0.5,  0.5,  0.5,   0.4,  0.2,    0,    0],
+                    610: [   0,      0,    0,   0.2,  0.6,    1,  0.8,   0.4,  0.2,    0,    0],
+                    024: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.2,  0.2,  0.2],
+                    124: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.2,  0.2,  0.2],
+                    223: [   0,      0,    0,     0,    0,    0,    0,   0.1,  0.1,  0.1,  0.1],
+                    322: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.2,  0.2,  0.2],
+                    421: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.3,  0.3,  0.3],
+                    520: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.5,  0.5,  0.5],
+                    620: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.6,  0.8,    1]}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////Fuzificação////////////////////////////////////////////////////////////////////////////
@@ -72,7 +95,7 @@ console.log(lum_fuzzy)
 var lum_fuzzy_sig = functions.get_sig(lum_fuzzy)
 console.log(lum_fuzzy_sig);
 
-//Achar qual dos valores do universo o valor da variação da mediada faz parte 
+//Achar qual dos valores do universo o valor da variação da mediada faz parte
 
 var lum_medida_atual = 803
 
@@ -99,10 +122,10 @@ var regras = []
 for(var i = 0; i < lum_fuzzy_sig.length; i++) {
     for (var j = 0; j < variacao_fuzzy_sig.length; j++) {
         var LV = [lum_fuzzy_sig[i], variacao_fuzzy_sig[j]]
-        
+
         for(var k = 0; k < BR.length; k++) {
             var br = [BR[k][0], BR[k][1], BR[k][2]]
-            
+
             if(LV[0] == br[0] && LV[1] == br[1]) {
                 regras.push([LV[0], LV[1], br[2] ])
             }
@@ -110,12 +133,15 @@ for(var i = 0; i < lum_fuzzy_sig.length; i++) {
     }
 }
 
-console.log(regras)
-
-for(var i = 0; i < regras.length; i++) {
-    var a = regras[i][0];
-    var b = regras[i][1];
-    var c = regras[i][2];
-
-    
+var INFERENCE_OUT = []
+for (regra in regras) {
+  var number = parseInt(regras[regra].join(""))
+  console.log(number)
+  if (number in INFERENCES) {
+    INFERENCE_OUT.push(INFERENCES[number])
+  }
 }
+
+var FUZZY_OUT = math.max(INFERENCE_OUT,0)
+console.log(INFERENCE_OUT)
+console.log(FUZZY_OUT)
