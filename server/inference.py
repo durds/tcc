@@ -16,12 +16,12 @@ VL_V = np.array([[1,    0.8,  0.6,  0.4,  0.2,   0,   0,   0,   0,   0,    0], #
                   [0,      0,    0,    0,    0,   0,   0, 0.2, 0.6, 0.8,    1]])#2 alta p cima
 
 
-U_A =  np.array([0,     31,   63,   95,  127, 159, 191, 223, 255]) #Universo dos valores de Ação(pwm)
-VL_A = np.array([[1,      0,    0,    0,    0,   0,   0,   0,   0], #0 baixo
-                  [0,    0.2,  0.4,  0.6,  0.3,   0,   0,   0,   0], #1 medio baixo
-                  [0,      0,    0,  0.3,    1, 0.5,   0,   0,   0], #2 medio
-                  [0,      0,    0,    0,    0, 0.2, 0.5, 0.8,   0], #3 medio alto
-                  [0,      0,    0,    0,    0,   0,   0,   0,   1]]) #4 alto
+U_A =  np.array([0,     25,     50,     75,   100,   125,   150,   175,   200,   225,   250]) #Universo dos valores de Ação(pwm)
+VL_A = np.array([[1,    0.9,    0.8,    0.6,   0.2,     0,     0,     0,     0,      0,    0], #0 baixo
+                 [0,    0.1,    0.2,    0.2,   0.4,   0.3,   0.1,     0,     0,      0,    0], #1 medio baixo
+                 [0,      0,    0.1,    0.1,   0.2,   0.4,   0.4,   0.5,   0.4,    0.2,    0], #2 medio
+                 [0,      0,      0,      0,     0,   0.1,   0.3,   0.4,   0.6,    0.7,  0.8], #3 medio alto
+                 [0,      0,      0,      0,     0,     0,     0,   0.1,   0.3,    0.5,    1]]) #4 alto
 
 #Base de Regras
 BR = np.array([[0, 0, 4],
@@ -53,8 +53,10 @@ BR = np.array([[0, 0, 4],
 #
 # print(VL_L)
 # print(VL_V)
-# print(VL_A)
-
+print(','.join(map(str, U_A)))
+print()
+for line in VL_A:
+    print('[' + ','.join(map(str, line)) + ']')
 
 
 R = []
@@ -87,4 +89,5 @@ for i in range(len(BR)):
 
 
 R_OUT = np.matrix(R)
-print(R_OUT)
+#for Line in R:
+#    print('[' + ','.join(map(str, Line)) + ']')

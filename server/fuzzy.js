@@ -21,12 +21,12 @@ const VL_V = [[1,    0.8,  0.6,  0.4,  0.2,   0,   0,   0,   0,   0,    0], //0 
               [0,      0,    0,    0,    0,   0,   0, 0.2, 0.6, 0.8,    1]] //2 alta p cima
 
 
-const U_A =   [0,     31,   63,   95,  127, 159, 191, 223, 255] // Universo dos valores de Ação(pwm)
-const VL_A = [[1,      0,    0,    0,    0,   0,   0,   0,   0], //0 baixo
-              [0,    0.2,  0.4,  0.6,  0.3,   0,   0,   0,   0], //1 medio baixo
-              [0,      0,    0,  0.3,    1, 0.5,   0,   0,   0], //2 medio
-              [0,      0,    0,    0,    0, 0.2, 0.5, 0.8,   0], //3 medio alto
-              [0,      0,    0,    0,    0,   0,   0,   0,   1]] //4 alto
+const U_A =   [0,25,50,75,100,125,150,175,200,225,250] // Universo dos valores de Ação(pwm)
+const VL_A = [[1.0,0.9,0.8,0.6,0.2,0.0,0.0,0.0,0.0,0.0,0.0], //baixo
+              [0.0,0.1,0.2,0.2,0.4,0.3,0.1,0.0,0.0,0.0,0.0], //medio baixo
+              [0.0,0.0,0.1,0.1,0.2,0.4,0.4,0.5,0.4,0.2,0.0], // medio
+              [0.0,0.0,0.0,0.0,0.0,0.1,0.3,0.4,0.6,0.7,0.8], // medio alto
+              [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.3,0.5,1.0]] //4 alto
 
 //Base de Regras
 const BR = [[0, 0, 4],
@@ -54,27 +54,27 @@ const BR = [[0, 0, 4],
             [6, 2, 0]]
 
 
-const INFERENCES = {004: [ 0.2,    0.2,  0.2,   0.2,  0.2,    0,    0,     0,    0,    0,    0],
-                    104: [ 0.2,    0.2,  0.2,   0.2,  0.2,    0,    0,     0,    0,    0,    0],
-                    204: [ 0.1,    0.1,  0.1,   0.1,  0.1,    0,    0,     0,    0,    0,    0],
-                    302: [ 0.2,    0.2,  0.2,   0.2,  0.2,    0,    0,     0,    0,    0,    0],
-                    400: [ 0.3,    0.3,  0.3,   0.3,  0.2,    0,    0,     0,    0,    0,    0],
-                    500: [ 0.5,    0.5,  0.5,   0.4,  0.2,    0,    0,     0,    0,    0,    0],
-                    600: [   1,    0.8,  0.6,   0.4,  0.2,    0,    0,     0,    0,    0,    0],
-                    013: [   0,      0,    0,   0.2,  0.2,  0.2,  0.2,   0.2,  0.2,    0,    0],
-                    113: [   0,      0,    0,   0.2,  0.2,  0.2,  0.2,   0.2,  0.2,    0,    0],
-                    212: [   0,      0,    0,   0.1,  0.1,  0.1,  0.1,   0.1,  0.1,    0,    0],
-                    312: [   0,      0,    0,   0.2,  0.2,  0.2,  0.2,   0.2,  0.2,    0,    0],
-                    412: [   0,      0,    0,   0.2,  0.3,  0.3,  0.3,   0.3,  0.2,    0,    0],
-                    511: [   0,      0,    0,   0.2,  0.5,  0.5,  0.5,   0.4,  0.2,    0,    0],
-                    610: [   0,      0,    0,   0.2,  0.6,    1,  0.8,   0.4,  0.2,    0,    0],
-                    024: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.2,  0.2,  0.2],
-                    124: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.2,  0.2,  0.2],
-                    223: [   0,      0,    0,     0,    0,    0,    0,   0.1,  0.1,  0.1,  0.1],
-                    322: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.2,  0.2,  0.2],
-                    421: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.3,  0.3,  0.3],
-                    520: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.5,  0.5,  0.5],
-                    620: [   0,      0,    0,     0,    0,    0,    0,   0.2,  0.6,  0.8,    1]}
+const INFERENCES = {004: [0.2,0.2,0.2,0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
+                    104: [0.2,0.2,0.2,0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
+                    204: [0.1,0.1,0.1,0.1,0.1,0.0,0.0,0.0,0.0,0.0,0.0],
+                    302: [0.2,0.2,0.2,0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
+                    400: [0.3,0.3,0.3,0.3,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
+                    500: [0.5,0.5,0.5,0.4,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
+                    600: [1.0,0.8,0.6,0.4,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
+                    013: [0.0,0.0,0.0,0.2,0.2,0.2,0.2,0.2,0.2,0.0,0.0],
+                    113: [0.0,0.0,0.0,0.2,0.2,0.2,0.2,0.2,0.2,0.0,0.0],
+                    212: [0.0,0.0,0.0,0.1,0.1,0.1,0.1,0.1,0.1,0.0,0.0],
+                    312: [0.0,0.0,0.0,0.2,0.2,0.2,0.2,0.2,0.2,0.0,0.0],
+                    412: [0.0,0.0,0.0,0.2,0.3,0.3,0.3,0.3,0.2,0.0,0.0],
+                    511: [0.0,0.0,0.0,0.2,0.4,0.4,0.4,0.4,0.2,0.0,0.0],
+                    610: [0.0,0.0,0.0,0.2,0.6,1.0,0.8,0.4,0.2,0.0,0.0],
+                    024: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.2,0.2,0.2],
+                    124: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.2,0.2,0.2],
+                    223: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.1,0.1,0.1],
+                    322: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.2,0.2,0.2],
+                    421: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.3,0.3,0.3],
+                    520: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.5,0.5,0.5],
+                    620: [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.6,0.8,1.0]}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////Fuzificação////////////////////////////////////////////////////////////////////////////
@@ -82,66 +82,142 @@ const INFERENCES = {004: [ 0.2,    0.2,  0.2,   0.2,  0.2,    0,    0,     0,   
 
 
 //Achar qual dos valores do universo o valor medido de luminosidade faz parte
+var firstTime = true
 
-var Lum_medida = 800
+//fuzifica a entrada que veio do sensor
+function lum_f(lum_m) {
+  var medida_aprox = 100*math.floor((lum_m+50)/100)
 
-var medida_aprox = 100*math.floor((Lum_medida+50)/100)
-var posicao_lum = U_L.indexOf(medida_aprox)
+  var posicao_lum = U_L.indexOf(medida_aprox)
 
-var lum_fuzzy = VL_L.map(function(value, index) { return value[posicao_lum]})
-console.log(posicao_lum)
-console.log(lum_fuzzy)
+  var lum_fuzzy = VL_L.map(function(value, index) { return value[posicao_lum]})
 
-var lum_fuzzy_sig = functions.get_sig(lum_fuzzy)
-console.log(lum_fuzzy_sig);
-
-//Achar qual dos valores do universo o valor da variação da mediada faz parte
-
-var lum_medida_atual = 803
-
-var variacao = lum_medida_atual - Lum_medida
-
-var variacao_aprox = 2*math.floor(variacao/2)
-
-var posicao_variacao = U_V.indexOf(variacao_aprox)
-
-console.log(posicao_variacao)
-
-var variacao_fuzzy = VL_V.map(function(value, index) { return value[posicao_variacao]})
-
-console.log(variacao_fuzzy)
-
-var variacao_fuzzy_sig = functions.get_sig(variacao_fuzzy)
-
-console.log(variacao_fuzzy_sig)
-
-// Encontrar Regras Válidas
-
-var regras = []
-
-for(var i = 0; i < lum_fuzzy_sig.length; i++) {
-    for (var j = 0; j < variacao_fuzzy_sig.length; j++) {
-        var LV = [lum_fuzzy_sig[i], variacao_fuzzy_sig[j]]
-
-        for(var k = 0; k < BR.length; k++) {
-            var br = [BR[k][0], BR[k][1], BR[k][2]]
-
-            if(LV[0] == br[0] && LV[1] == br[1]) {
-                regras.push([LV[0], LV[1], br[2] ])
-            }
-        }
-    }
+  return lum_fuzzy
 }
 
-var INFERENCE_OUT = []
-for (regra in regras) {
-  var number = parseInt(regras[regra].join(""))
-  console.log(number)
-  if (number in INFERENCES) {
-    INFERENCE_OUT.push(INFERENCES[number])
+function lum_fuzzy_sig(lum_fuzzy) {
+  return functions.get_sig(lum_fuzzy)
+}
+
+//fuzzifica a variação da leitura atual com a anterior
+function vari(lum_m) {
+  var variacao = 0
+  if(firstTime) {
+      lum_medida_anterior = 0
+      variacao = lum_medida_anterior - lum_m
+      lum_medida_anterior = lum_m
+      firstTime = false
+  } else {
+      variacao = lum_medida_anterior - lum_m
+      lum_medida_anterior = lum_m
   }
+
+  var variacao_aprox = 2*math.floor(variacao/2)
+
+  var posicao_variacao = U_V.indexOf(variacao_aprox)
+
+  var variacao_fuzzy = VL_V.map(function(value, index) { return value[posicao_variacao]})
+
+  return variacao_fuzzy
 }
 
-var FUZZY_OUT = math.max(INFERENCE_OUT,0)
-console.log(INFERENCE_OUT)
-console.log(FUZZY_OUT)
+function variacao_fuzzy_sig(variacao_fuzzy) {
+  return functions.get_sig(variacao_fuzzy)
+}
+
+// Encontrar Regras Válidas para a entrada dada
+function regras_validas(lum_fuzzy_sig, variacao_fuzzy_sig) {
+  var regras = []
+
+  for(var i = 0; i < lum_fuzzy_sig.length; i++) {
+      for (var j = 0; j < variacao_fuzzy_sig.length; j++) {
+          var LV = [lum_fuzzy_sig[i], variacao_fuzzy_sig[j]]
+
+          for(var k = 0; k < BR.length; k++) {
+              var br = [BR[k][0], BR[k][1], BR[k][2]]
+
+              if(LV[0] == br[0] && LV[1] == br[1]) {
+                  regras.push([LV[0], LV[1], br[2] ])
+              }
+          }
+      }
+  }
+
+  return regras;
+}
+
+//usa as regras válidas para realizar a inferência
+function inference(regras) {
+  var INFERENCE_OUT = []
+  for (regra in regras) {
+    var number = parseInt(regras[regra].join(""))
+    console.log(number)
+    if (number in INFERENCES) {
+      INFERENCE_OUT.push(INFERENCES[number])
+    }
+  }
+
+  return INFERENCE_OUT
+}
+
+function fuzz_out(inference_out) {
+  return math.max(inference_out,0)
+}
+
+//defuzifica os valores fuzzy para um pwm válido
+function deffuz(fuzzy_out) {
+  // var MP = Array.apply(null, new Array(U_A.length)).map(Number.prototype.valueOf,0);
+  // var S = Array.apply(null, new Array(U_A.length)).map(Number.prototype.valueOf,0);
+  //
+  // for (n in fuzzy_out) {
+  //   var MP_aux = U_A.map((num, idx) => {
+  //     return num * fuzzy_out[n]
+  //   })
+  //   MP = MP.map((num, idx) => {
+  //     return num + MP_aux[idx]
+  //   })
+  //
+  //   S = S.map((num, idx) => {
+  //     return num + U_A[idx]
+  //   })
+  //
+  //
+  //
+  // }
+  //
+  // var a = math.matrix(MP)
+  // var b = math.inv(math.matrix(S))
+  // var result = math.multiply(a,b)
+  // return result
+
+  return Math.random() * (255 - 0)
+}
+
+
+//pipelien do controlador
+exports.run = function(val) {
+  console.log(val)
+  //fuzificação
+  var lum_fuzzy = lum_f(val)
+  console.log(lum_fuzzy)
+  var lum_sig = lum_fuzzy_sig(lum_fuzzy)
+  console.log(lum_sig)
+  var vari_fuzzy = vari(val)
+  console.log(vari_fuzzy)
+  var variacao_sig = variacao_fuzzy_sig(vari_fuzzy)
+  console.log(variacao_sig)
+  //regras válidas
+  var regras = regras_validas(lum_sig, variacao_sig)
+  console.log(regras)
+  //inferencia
+
+  var inference_out = inference(regras)
+  console.log(inference_out)
+  var fuzzy_out = fuzz_out(inference_out)
+
+  //defuzificação
+
+  var result = deffuz(fuzzy_out)
+
+  return result
+}
