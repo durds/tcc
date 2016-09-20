@@ -17,10 +17,10 @@ server.on("message", function (msg, rinfo) {
   //console.log("server got: " + msg.readUInt16LE(0) + " from " + rinfo.address + ":" + rinfo.port);
   // guarda o valor da leitura de Luminosidade
   var input = msg.readUInt16LE(0)
-
+  console.log("input: " + input)
   //manda para o controlador fuzzy
   var fuzzified = fuzzy.run(input)
-
+  fuzzified = Math.round(fuzzified)
   //cria buffer com a resposta
   var reply = Buffer.from(fuzzified.toString())
 
@@ -31,7 +31,7 @@ server.on("message", function (msg, rinfo) {
   	console.log("response: " + fuzzified);
   });
   //grava os valores no banco de dados
-  db.collection('readings').insertOne({'data': new Date(), 'reading': input, 'pwm': fuzzified })
+  //db.collection('readings').insertOne({'data': new Date(), 'reading': input, 'pwm': fuzzified })
 });
 
 //quando o servidor começar a funcionar:
