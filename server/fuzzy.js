@@ -54,27 +54,27 @@ const BR = [[0, 0, 4],
             [6, 2, 0]]
 
 
-const INFERENCES = {"004": [0.2,0.2,0.2,0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
-                    "104": [0.2,0.2,0.2,0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
-                    "204": [0.1,0.1,0.1,0.1,0.1,0.0,0.0,0.0,0.0,0.0,0.0],
-                    "302": [0.2,0.2,0.2,0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
-                    "400": [0.3,0.3,0.3,0.3,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
-                    "500": [0.5,0.5,0.5,0.4,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
-                    "600": [1.0,0.8,0.6,0.4,0.2,0.0,0.0,0.0,0.0,0.0,0.0],
-                    "013": [0.0,0.0,0.0,0.2,0.2,0.2,0.2,0.2,0.2,0.0,0.0],
-                    "113": [0.0,0.0,0.0,0.2,0.2,0.2,0.2,0.2,0.2,0.0,0.0],
-                    "212": [0.0,0.0,0.0,0.1,0.1,0.1,0.1,0.1,0.1,0.0,0.0],
-                    "312": [0.0,0.0,0.0,0.2,0.2,0.2,0.2,0.2,0.2,0.0,0.0],
-                    "412": [0.0,0.0,0.0,0.2,0.3,0.3,0.3,0.3,0.2,0.0,0.0],
-                    "511": [0.0,0.0,0.0,0.2,0.4,0.4,0.4,0.4,0.2,0.0,0.0],
-                    "610": [0.0,0.0,0.0,0.2,0.6,1.0,0.8,0.4,0.2,0.0,0.0],
-                    "024": [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.2,0.2,0.2],
-                    "124": [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.2,0.2,0.2],
-                    "223": [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.1,0.1,0.1],
-                    "322": [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.2,0.2,0.2],
-                    "421": [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.3,0.3,0.3],
-                    "520": [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.5,0.5,0.5],
-                    "620": [0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.6,0.8,1.0]}
+const INFERENCES = {"004":[0.2,0.2,0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+                    "104":[0.2,0.2,0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+                    "204":[0.1,0.1,0.1,0.1,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+                    "302":[0.2,0.2,0.2,0.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+                    "400":[0.3,0.3,0.3,0.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+                    "500":[0.5,0.5,0.5,0.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+                    "600":[1.0,0.8,0.6,0.2,0.0,0.0,0.0,0.0,0.0,0.0,0.0],
+                    "013":[0.0,0.0,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.0,0.0],
+                    "113":[0.0,0.0,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.0,0.0],
+                    "212":[0.0,0.0,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.0,0.0],
+                    "312":[0.0,0.0,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.0,0.0],
+                    "412":[0.0,0.0,0.2,0.3,0.3,0.3,0.3,0.3,0.2,0.0,0.0],
+                    "511":[0.0,0.0,0.2,0.4,0.4,0.4,0.4,0.4,0.2,0.0,0.0],
+                    "610":[0.0,0.0,0.2,0.4,0.6,1.0,0.8,0.4,0.2,0.0,0.0],
+                    "024":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.2,0.2,0.2],
+                    "124":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.2,0.2,0.2],
+                    "223":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.1,0.1,0.1,0.1],
+                    "322":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.2,0.2,0.2],
+                    "421":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.3,0.3,0.3],
+                    "520":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.5,0.5,0.5],
+                    "620":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.2,0.6,0.8,1.0]}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////Fuzificação////////////////////////////////////////////////////////////////////////////
@@ -87,7 +87,7 @@ var firstTime = true
 //fuzifica a entrada que veio do sensor
 function lum_f(lum_m) {
   var medida_aprox = 100*math.floor((lum_m+50)/100)
-
+  console.log("Medida aprox " + medida_aprox)
   var posicao_lum = U_L.indexOf(medida_aprox)
 
   var lum_fuzzy = VL_L.map(function(value, index) { return value[posicao_lum]})
@@ -105,15 +105,15 @@ function vari(lum_m) {
   console.log("firstTime: " + firstTime)
   if(firstTime) {
       lum_medida_anterior = 0
-      variacao = lum_medida_anterior - lum_m
+      variacao = lum_m - lum_medida_anterior
       lum_medida_anterior = lum_m
       firstTime = false
   } else {
-      variacao = lum_medida_anterior - lum_m
+      variacao = lum_m - lum_medida_anterior
       lum_medida_anterior = lum_m
   }
 
-  var variacao_aprox = 2*math.floor(variacao/2)
+  var variacao_aprox = 2*math.floor((variacao+1)/2)
   if(variacao_aprox < -10) variacao_aprox = -10
   if(variacao_aprox > 10) variacao_aprox = 10
   console.log("aprox Variation: " + variacao_aprox)
@@ -156,7 +156,7 @@ function inference(regras) {
     console.log("rule: " + regras[regra])
     var number = regras[regra].join("")
 
-    console.log("inference number: " + number)
+    //console.log("inference number: " + number)
     if (number in INFERENCES) {
       INFERENCE_OUT.push(INFERENCES[number])
     }
@@ -185,61 +185,61 @@ function deffuz(fuzzy_out) {
   return soma/n
 }
 
-
-//pipelien do controlador debbug
-exports.run = function(val) {
-  console.log("Initial Value: " + val)
-  //fuzificação
-  var lum_fuzzy = lum_f(val)
-  console.log("Fuzzified Value: " + lum_fuzzy)
-  var lum_sig = lum_fuzzy_sig(lum_fuzzy)
-  console.log("Non zero Values: " + lum_sig)
-  var vari_fuzzy = vari(val)
-  console.log("Variation Fuzzified: " + vari_fuzzy)
-  var variacao_sig = variacao_fuzzy_sig(vari_fuzzy)
-  console.log("Non Zero values:" + variacao_sig)
-  //regras válidas
-  var regras = regras_validas(lum_sig, variacao_sig)
-  console.log("Valid Rules: " + regras)
-  //inferencia
-
-  var inference_out = inference(regras)
-  console.log("Inference: " + inference_out)
-  var fuzzy_o = fuzz_out(inference_out)
-  console.log("Fuzzy out: " + fuzzy_o)
-  //defuzificação
-
-  var result = deffuz(fuzzy_o)
-  console.log("Deffuzified: " + result);
-  return result
-}
-
-
-
-//pipelien do controlador production
-// exports.run = function(val) {
 //
+// //pipelien do controlador debbug
+// exports.run = function(val) {
+//   console.log("Initial Value: " + val)
 //   //fuzificação
 //   var lum_fuzzy = lum_f(val)
-//
+//   console.log("Fuzzified Value: " + lum_fuzzy)
 //   var lum_sig = lum_fuzzy_sig(lum_fuzzy)
-//
+//   console.log("Non zero Values: " + lum_sig)
 //   var vari_fuzzy = vari(val)
-//
+//   console.log("Variation Fuzzified: " + vari_fuzzy)
 //   var variacao_sig = variacao_fuzzy_sig(vari_fuzzy)
-//
+//   console.log("Non Zero values:" + variacao_sig)
 //   //regras válidas
 //   var regras = regras_validas(lum_sig, variacao_sig)
-//
+//   console.log("Valid Rules: " + regras)
 //   //inferencia
 //
 //   var inference_out = inference(regras)
-//
+//   console.log("Inference: " + inference_out)
 //   var fuzzy_o = fuzz_out(inference_out)
-//
+//   console.log("Fuzzy out: " + fuzzy_o)
 //   //defuzificação
 //
 //   var result = deffuz(fuzzy_o)
-//
+//   console.log("Deffuzified: " + result);
 //   return result
 // }
+
+
+
+// pipelien do controlador production
+exports.run = function(val) {
+
+  //fuzificação
+  var lum_fuzzy = lum_f(val)
+
+  var lum_sig = lum_fuzzy_sig(lum_fuzzy)
+
+  var vari_fuzzy = vari(val)
+
+  var variacao_sig = variacao_fuzzy_sig(vari_fuzzy)
+
+  //regras válidas
+  var regras = regras_validas(lum_sig, variacao_sig)
+
+  //inferencia
+
+  var inference_out = inference(regras)
+
+  var fuzzy_o = fuzz_out(inference_out)
+
+  //defuzificação
+
+  var result = deffuz(fuzzy_o)
+
+  return result
+}

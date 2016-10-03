@@ -2,9 +2,11 @@ var fuzzy = require('../server/fuzzy.js')
 
 
 
-var valor = 20
+var valor = [920,830,828,822,270,120,137,480]
 
+for(v in valor) {
+  var result = fuzzy.run(valor[v])
 
-var result = fuzzy.run(valor)
-
-console.log(result)
+  console.log("PWM: " + result)
+  console.log("")
+}

@@ -31,9 +31,16 @@ server.on("message", function (msg, rinfo) {
   	console.log("response: " + fuzzified);
   });
   //grava os valores no banco de dados
-  //db.collection('readings').insertOne({'data': new Date(), 'reading': input, 'pwm': fuzzified })
+  db.collection('readings').insertOne({'data': new Date(), 'reading': input, 'pwm': fuzzified }, function(err,r ) {
+    assert.equal(null,err)
+    console.log("inserted")
+  })
 });
 
+server.on('close', function(){
+  console.log("Closing.")
+  db.close();
+})
 //quando o servidor começar a funcionar:
 server.on("listening", function () {
   var address = server.address();

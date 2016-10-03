@@ -11,13 +11,13 @@ VL_L =  np.array([[1,  0.2,    0,    0,    0,    0,    0,    0,    0,    0,     
 
 
 U_V =  np.array([-10,   -8,   -6,   -4,   -2,   0,   2,   4,   6,   8,   10]) #Universo dos valores de Variação da Luminosidade
-VL_V = np.array([[1,    0.8,  0.6,  0.4,  0.2,   0,   0,   0,   0,   0,    0], #0 alta p baixo
-                  [0,      0,    0,  0.2,  0.6,   1, 0.8, 0.4, 0.2,   0,    0], #1 baixa
-                  [0,      0,    0,    0,    0,   0,   0, 0.2, 0.6, 0.8,    1]])#2 alta p cima
+VL_V = np.array([[1,    0.8,  0.6,  0.2,   0,   0,   0,   0,   0,   0,    0], #0 alta p baixo
+                 [0,      0,  0.2,  0.4,  0.6,   1, 0.8, 0.4, 0.2,   0,    0], #1 baixa
+                 [0,      0,    0,    0,    0,   0,   0, 0.2, 0.6, 0.8,    1]])#2 alta p cima
 
 
-U_A =  np.array([0,     25,     50,     75,   100,   125,   150,   175,   200,   225,   250]) #Universo dos valores de Ação(pwm)
-VL_A = np.array([[1,    0.9,    0.8,    0.6,   0.2,     0,     0,     0,     0,      0,    0], #0 baixo
+U_A =  np.array([0,     25,     50,     75,   100,   125,   150,   175,   200,   225,   255]) #Universo dos valores de Ação(pwm)
+VL_A = np.array([[1,    0.9,    0.8,    0.6,   0,     0,     0,     0,     0,      0,    0], #0 baixo
                  [0,    0.1,    0.2,    0.2,   0.4,   0.3,   0.1,     0,     0,      0,    0], #1 medio baixo
                  [0,      0,    0.1,    0.1,   0.2,   0.4,   0.4,   0.5,   0.4,    0.2,    0], #2 medio
                  [0,      0,      0,      0,     0,   0.1,   0.3,   0.4,   0.6,    0.7,  0.8], #3 medio alto
@@ -89,5 +89,9 @@ for i in range(len(BR)):
 
 
 R_OUT = np.matrix(R)
-#for Line in R:
-#    print('[' + ','.join(map(str, Line)) + ']')
+
+print(''.join(map(str,BR[0])))
+k = 0
+while k < 21:
+    print('"' + ''.join(map(str,BR[k])) + '":' + '[' + ','.join(map(str, R[k])) + '],')
+    k = k + 1
