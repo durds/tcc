@@ -1,12 +1,13 @@
 from pymongo import MongoClient
 import matplotlib.pyplot as plt
 import matplotlib.dates as dts
+import sys
 
 client = MongoClient('mongodb://localhost:27017/')
 
 db = client['TCC']
 
-readings = db.readings
+readings = db[sys.argv[1]]
 inputs = []
 pwm = []
 time = []
@@ -24,8 +25,8 @@ for readings in readings.find():
 time_formated = dts.date2num(time)
 
 
-plt.plot_date(time_formated, inputs, 'bo')
-plt.plot_date(time, pwm, 'gs')
+plt.plot_date(time_formated, inputs, 'b-')
+plt.plot_date(time, pwm, 'g-')
 plt.gcf().autofmt_xdate()
 plt.grid()
 

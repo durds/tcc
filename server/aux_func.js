@@ -8,6 +8,14 @@ exports.get_sig = function (arr) {
     return sig
 }
 
+exports.avg = function (arr) {
+  var sum = 0;
+  for(item in arr) {
+    sum = sum + arr[item];
+  }
+
+  return sum/arr.length;
+}
 
 // Warn if overriding existing method
 if(Array.prototype.equals)
