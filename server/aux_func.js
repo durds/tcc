@@ -17,6 +17,10 @@ exports.avg = function (arr) {
   return sum/arr.length;
 }
 
+exports.proportional = function (initial, final) {
+  return ((final - initial)/255)*16;
+}
+
 // Warn if overriding existing method
 if(Array.prototype.equals)
     console.warn("Overriding existing Array.prototype.equals. Possible causes: New API defines the method, there's a framework conflict or you've got double inclusions in your code.");

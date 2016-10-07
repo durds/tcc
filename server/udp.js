@@ -8,7 +8,8 @@ var queue = []
 var url = 'mongodb://localhost:27017/TCC';
 var db;
 var collection = process.argv[2];
-console.log(collection)
+var last_pwm = 0;
+
 mongo.connect(url, function(err, database){
   assert.equal(null, err);
   console.log("Successfully connected to date base.");
@@ -30,17 +31,21 @@ server.on("message", function (msg, rinfo) {
       var avg_input = functions.avg(queue)
       //manda para o controlador fuzzy
       var fuzzified = fuzzy.run(avg_input)
-      fuzzified = Math.round(fuzzified)
-      console.log("response: " + fuzzified);
+      var output = functions.proportional(last_pwm, fuzzified)
+
+      output = Math.round(output + last_pwm)
+      console.log("response: " + output);
       //cria buffer com a resposta
-      var reply = Buffer.from(fuzzified.toString())
+      var reply = Buffer.from(output.toString())
 
       //envia a resposta de volta para o arduino
       respond(reply, PORT, HOST)
 
       //grava os valores no banco de dados
-      save(avg_input, fuzzified)
+      save(avg_input, output)
       queue.shift()
+
+      last_pwm = output
   }
 
 

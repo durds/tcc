@@ -70,13 +70,13 @@ for i in range(len(BR)):
     for x in range(len(VL_L[0])):
         for y in range(len(VL_V[0])):
             for z in range(len(VL_A[0])):
-                M[y][x][z] = min(VL_L[a][x], VL_V[b][y], VL_A[c][z])
+                M[y][x][z] = max(VL_L[a][x], VL_V[b][y], VL_A[c][z])
 
     MIN = np.zeros(( len(VL_L[0]), len(VL_V[0]) ))
 
     for x in range(len(VL_L[0])):
         for y in range(len(VL_V[0])):
-                MIN[x][y] = max(M[x][y][:])
+                MIN[x][y] = min(M[x][y][:])
 
     MIN_AUX = MIN[:,~np.all(MIN == 0, axis=0)]
 
@@ -92,6 +92,8 @@ R_OUT = np.matrix(R)
 
 print(''.join(map(str,BR[0])))
 k = 0
+j = 20
 while k < 21:
-    print('"' + ''.join(map(str,BR[k])) + '":' + '[' + ','.join(map(str, R[k])) + '],')
+    print('"' + ''.join(map(str,BR[k])) + '":' + '[' + ','.join(map(str, R[j])) + '],')
     k = k + 1
+    j = j - 1
