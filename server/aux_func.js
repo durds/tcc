@@ -18,7 +18,7 @@ exports.avg = function (arr) {
 }
 
 exports.proportional = function (initial, final) {
-  return ((final - initial)/255)*16;
+  return ((final - initial)/255)*8;
 }
 
 // Warn if overriding existing method
